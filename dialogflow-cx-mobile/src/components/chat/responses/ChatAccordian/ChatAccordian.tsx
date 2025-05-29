@@ -1,56 +1,37 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import Svg, {Path} from 'react-native-svg';
+import { View, TouchableOpacity } from 'react-native';
 
-import {styles} from './ChatAccordian.styles';
+import { styles } from './ChatAccordian.styles';
 import ChatHTML from '../ChatHTML/ChatHTML';
+import ChatAccordianCard from '../ChatAccordianCard/ChatAccordianCard';
 
-const ChatAccordian = ({
+interface ChatAccordianProps {
+  title: string;
+  subtitle?: string | null;
+  image?: string | null;
+  text?: string | null;
+}
+
+const ChatAccordian: React.FC<ChatAccordianProps> = ({
   title,
   subtitle,
   image,
   text,
-}: {
-  title: string;
-  subtitle: string | null;
-  image: string | null;
-  text: string | null;
 }) => {
   const [textVisible, setTextVisible] = React.useState(false);
 
-  const renderCard = () => {
-    return (
-      <View>
-        {image && image.length > 0 && (
-          <Image source={{uri: image}} style={[styles.image]} />
-        )}
-        <View style={styles.textContainer}>
-          <View style={styles.descriptionStyles}>
-            <Text style={styles.title}>{title}</Text>
-            {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
-          </View>
-          {text &&
-            text.length > 0 &&
-            (textVisible ? (
-              <Svg width={24} height={24} viewBox="0 0 24 24">
-                <Path d="m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></Path>
-              </Svg>
-            ) : (
-              <Svg width={24} height={24} viewBox="0 0 24 24">
-                <Path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"></Path>
-              </Svg>
-            ))}
-        </View>
-      </View>
-    );
-  };
-
-  const renderAll = () => {
-    if (text && text.length > 0) {
-      return (
+  return (
+    <View style={styles.containerStyles}>
+      {text && text.length > 0 ? (
         <>
           <TouchableOpacity onPress={() => setTextVisible(!textVisible)}>
-            {renderCard()}
+            <ChatAccordianCard
+              title={title}
+              subtitle={subtitle ? subtitle : undefined}
+              image={image ? image : undefined}
+              text={text}
+              textVisible={textVisible}
+            />
           </TouchableOpacity>
           {textVisible && (
             <View style={styles.contentContainer}>
@@ -65,13 +46,17 @@ const ChatAccordian = ({
             </View>
           )}
         </>
-      );
-    } else {
-      return renderCard();
-    }
-  };
-
-  return <View style={styles.containerStyles}>{renderAll()}</View>;
+      ) : (
+        <ChatAccordianCard
+          title={title}
+          subtitle={subtitle ? subtitle : undefined}
+          image={image ? image : undefined}
+          text={text ? text : undefined}
+          textVisible={textVisible}
+        />
+      )}
+    </View>
+  );
 };
 
 export default ChatAccordian;
