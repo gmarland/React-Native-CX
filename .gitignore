@@ -50,7 +50,6 @@ example/vendor/
 
 # node.js
 #
-node_modules/
 npm-debug.log
 yarn-debug.log
 yarn-error.log
@@ -84,4 +83,9 @@ android/generated
 
 # React Native Nitro Modules
 nitrogen/
-.yarn
+.yarn/
+
+build/
+node_modules/
+.DS_Store/
+.env
