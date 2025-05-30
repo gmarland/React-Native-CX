@@ -20,6 +20,7 @@ import type { IMessage } from '../../../interfaces/responses/IMessage';
 interface ChatDialogProps {
   placeholder?: string;
   chatURL: string;
+  apiKey?: string;
   agentPath: string;
   languageCode: string;
   sessionTimeout: number;
@@ -35,6 +36,7 @@ const ChatDialog = forwardRef(
     {
       placeholder = 'Message...',
       chatURL,
+      apiKey,
       agentPath,
       languageCode = 'en',
       sessionTimeout,
@@ -87,7 +89,7 @@ const ChatDialog = forwardRef(
 
         setIsLoading(true);
 
-        new ChatService(chatURL, agentPath, languageCode)
+        new ChatService(chatURL, apiKey, agentPath, languageCode)
           .sendMessage(sessionId, text)
           .then((responses) => {
             setIsLoading(false);

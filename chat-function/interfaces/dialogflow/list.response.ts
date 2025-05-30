@@ -44,7 +44,6 @@ export class ListResponse implements IResponse {
   private _items: ListItem[] = [];
 
   constructor(response: any) {
-    console.log("ListResponse", response);
     for (const item of response.values) {
       if (item && (item.title || item.image)) {
         this._items.push(
