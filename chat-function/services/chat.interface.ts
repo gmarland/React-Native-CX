@@ -1,3 +1,7 @@
 export interface IChatService {
-  sendMessage(sessionId: string, message: string): Promise<any[]>;
+  sendMessage(
+    sessionId: string,
+    sessionVariables: Record<string, string>,
+    message: string
+  ): Promise<any[]>;
 }

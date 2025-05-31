@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "example",
-    "slug": "example",
+    "name": "Dialogflow CX Example",
+    "slug": "DFCX Example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -16,7 +16,11 @@ export class ChatService {
     this._languageCode = languageCode;
   }
 
-  public async sendMessage(sessionId: string, input: string): Promise<any[]> {
+  public async sendMessage(
+    sessionId: string,
+    input: string,
+    sessionVariables: Record<string, string>
+  ): Promise<any[]> {
     try {
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
@@ -26,8 +30,6 @@ export class ChatService {
         headers['x-api-key'] = this._apiKey;
       }
 
-      console.log('BOOM', `${this._chatURL}?sessionId=${sessionId}`);
-
       const response = await fetch(`${this._chatURL}?sessionId=${sessionId}`, {
         method: 'POST',
         headers: headers,
@@ -35,6 +37,7 @@ export class ChatService {
           input,
           agentPath: this._agentPath,
           languageCode: this._languageCode,
+          sessionVariables: sessionVariables,
         }),
       });
 

@@ -26,7 +26,11 @@ export class DialogflowService implements IChatService {
     this._languageCode = languageCode;
   }
 
-  public async sendMessage(sessionId: string, message: string): Promise<any[]> {
+  public async sendMessage(
+    sessionId: string,
+    sessionVariables: Record<string, string>,
+    message: string
+  ): Promise<any[]> {
     if (!this._projectId || !this._location || !this._agentId) {
       throw new Error("Invalid agent path");
     }
@@ -41,6 +45,9 @@ export class DialogflowService implements IChatService {
           text: message,
         },
         languageCode: this._languageCode,
+      },
+      queryParams: {
+        parameters: sessionVariables,
       },
     };
 
@@ -85,9 +92,7 @@ export class DialogflowService implements IChatService {
               message.payload.richContent
             );
             if (structValues) {
-              console.log("Building responses:", structValues);
               for (const structValue of structValues) {
-                console.log("Building response:", structValue);
                 const responseType = structValue.type ? structValue.type : null;
 
                 if (responseType) {

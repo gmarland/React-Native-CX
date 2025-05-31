@@ -24,6 +24,10 @@ const ChatWrapper: React.FC = () => {
         sessionTimeout={30}
         mainColor="#ff0000"
         mainTextColor="#FFFFFF"
+        sessionVariables={{
+          userId: '12345',
+          userName: 'John Doe',
+        }}
       />
     </View>
   );

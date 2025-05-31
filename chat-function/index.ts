@@ -13,7 +13,6 @@ export const processChat = async (
     return;
   }
 
-  console.log("process.env.API_KEY", process.env.API_KEY);
   if (process.env.API_KEY) {
     const apiKey = req.headers["x-api-key"];
 
@@ -35,11 +34,20 @@ export const processChat = async (
 
   const sessionId = req.query.sessionId as string;
 
-  const { input, agentPath, languageCode = "en" } = req.body;
+  const {
+    input,
+    agentPath,
+    languageCode = "en",
+    sessionVariables = {},
+  } = req.body;
 
   const dialogflowService = new DialogflowService(agentPath, languageCode);
 
-  const responses = await dialogflowService.sendMessage(sessionId, input);
+  const responses = await dialogflowService.sendMessage(
+    sessionId,
+    sessionVariables,
+    input
+  );
 
   res.status(200).json(responses.map((r) => r.toJSON()));
 };

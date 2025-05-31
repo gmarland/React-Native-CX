@@ -1,4 +1,4 @@
-import React, {
+import {
   useState,
   useEffect,
   useRef,
@@ -22,8 +22,8 @@ interface ChatDialogProps {
   chatURL: string;
   apiKey?: string;
   agentPath: string;
-  languageCode: string;
-  sessionTimeout: number;
+  languageCode?: string;
+  sessionTimeout?: number;
   startMessage?: string;
   welcomeMessage?: string;
   mainColor: string;
@@ -39,7 +39,7 @@ const ChatDialog = forwardRef(
       apiKey,
       agentPath,
       languageCode = 'en',
-      sessionTimeout,
+      sessionTimeout = 30,
       startMessage,
       welcomeMessage,
       mainColor,
@@ -90,7 +90,7 @@ const ChatDialog = forwardRef(
         setIsLoading(true);
 
         new ChatService(chatURL, apiKey, agentPath, languageCode)
-          .sendMessage(sessionId, text)
+          .sendMessage(sessionId, text, sessionVariables)
           .then((responses) => {
             setIsLoading(false);
 
