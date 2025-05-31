@@ -4,13 +4,6 @@
 read -p "🧾 Google Cloud Project ID: " PROJECT_ID
 read -p "🌍 Region (e.g., us-central1): " REGION
 read -p "📛 Cloud Function Name: " FUNCTION_NAME
-read -p "Allow unauthenticated access? (y/n): " ALLOW
-
-if [[ "$ALLOW" =~ ^[Yy]$ ]]; then
-  AUTH_FLAG="--allow-unauthenticated"
-else
-  AUTH_FLAG=""
-fi
 
 echo ""
 echo "🚀 Deploying function..."
@@ -25,7 +18,7 @@ gcloud functions deploy "$FUNCTION_NAME" \
   --entry-point="processChat" \
   --runtime=nodejs20 \
   --trigger-http \
-  $AUTH_FLAG \
+ --allow-unauthenticated \
   --source=. \
   --memory=256MB \
   --timeout=60s
