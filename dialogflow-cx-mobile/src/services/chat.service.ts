@@ -42,13 +42,22 @@ export class ChatService {
       });
 
       if (!response.ok) {
-        throw new Error(`Error sending message: ${response.statusText}`);
+        throw new Error(await response.text());
       }
 
       return response.json();
     } catch (error) {
-      console.error('Error retrieving chat:', error);
-      return [];
+      return [
+        {
+          type: 'error',
+          content: {
+            message:
+              error instanceof Error
+                ? error.message
+                : 'An error occurred processing your message. Please try again.',
+          },
+        },
+      ];
     }
   }
 }

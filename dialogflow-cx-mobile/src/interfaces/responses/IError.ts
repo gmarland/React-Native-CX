@@ -1,3 +1,3 @@
 export interface IError {
-  content: string;
+  message: string;
 }

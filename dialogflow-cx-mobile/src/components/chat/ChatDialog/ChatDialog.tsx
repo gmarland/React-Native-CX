@@ -89,21 +89,39 @@ const ChatDialog = forwardRef(
 
         setIsLoading(true);
 
-        new ChatService(chatURL, apiKey, agentPath, languageCode)
-          .sendMessage(sessionId, text, sessionVariables)
-          .then((responses) => {
-            setIsLoading(false);
+        try {
+          new ChatService(chatURL, apiKey, agentPath, languageCode)
+            .sendMessage(sessionId, text, sessionVariables)
+            .then((responses) => {
+              setIsLoading(false);
 
-            const newMessages = responses.map((message: IMessage) => ({
-              id: uuid.v4() as string,
-              visible: true,
-              type: message.type,
-              content: message.content,
-              added: new Date(),
-            }));
+              const newMessages = responses.map((message: IMessage) => ({
+                id: uuid.v4() as string,
+                visible: true,
+                type: message.type,
+                content: message.content,
+                added: new Date(),
+              }));
 
-            chatWindowRef.current?.addMessages(newMessages);
-          });
+              chatWindowRef.current?.addMessages(newMessages);
+            })
+            .catch((err) => {
+              chatWindowRef.current?.addMessages([
+                {
+                  type: 'error',
+                  content: { message: err.message },
+                },
+              ]);
+            });
+        } catch (err) {
+          console.log(err);
+          chatWindowRef.current?.addMessages([
+            {
+              type: 'error',
+              content: { message: (err as Error).message },
+            },
+          ]);
+        }
       },
       [addMessage, chatURL, agentPath, sessionId]
     );

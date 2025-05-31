@@ -1,24 +1,19 @@
-import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
-import {styles} from './ChatError.styles';
+import { styles } from './ChatError.styles';
 import ChatHTML from '../ChatHTML/ChatHTML';
 
-const ChatError = ({textToRender}: {textToRender: string}) => {
-  const messageStyles = [
-    styles.responseMessage,
-    {color: '#ffffff', backgroundColor: '#ff7d7d'},
-  ];
-
+const ChatError = ({ textToRender }: { textToRender: string }) => {
   return (
     <View style={styles.responseContainer}>
-      <View style={[messageStyles]}>
+      <View style={styles.responseInnerContainer}>
         <ChatHTML
           textToRender={textToRender}
           contentWidth={300}
           baseStyle={{
             color: '#ffffff',
             fontSize: 17,
+            fontWeight: 'bold',
           }}
         />
       </View>

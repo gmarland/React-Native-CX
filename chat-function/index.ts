@@ -17,7 +17,7 @@ export const processChat = async (
     const apiKey = req.headers["x-api-key"];
 
     if (apiKey !== process.env.API_KEY) {
-      res.status(401).send("Unauthorized");
+      res.status(401).send("Unauthorized - Invalid API Key");
       return;
     }
   }

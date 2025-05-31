@@ -11,18 +11,18 @@ import ChatChips from '../responses/ChatChips/ChatChips';
 import ChatFiles from '../responses/ChatFiles/ChatFiles';
 import ChatError from '../responses/ChatError/ChatError';
 
-import {IMessage} from '../../../interfaces/responses/IMessage';
-import {IInfo} from '../../../interfaces/responses/IInfo';
-import {IText} from '../../../interfaces/responses/IText';
-import {IError} from '../../../interfaces/responses/IError';
-import {IDescription} from '../../../interfaces/responses/IDescription';
-import {IImage} from '../../../interfaces/responses/IImage';
-import {IVideo} from '../../../interfaces/responses/IVideo';
-import {IAccordian} from '../../../interfaces/responses/IAccordian';
-import {IButton} from '../../../interfaces/responses/IButton';
-import {IListItem} from '../../../interfaces/responses/IListItem';
-import {IChip} from '../../../interfaces/responses/IChip';
-import {IFile} from '../../../interfaces/responses/IFile';
+import type { IMessage } from '../../../interfaces/responses/IMessage';
+import type { IInfo } from '../../../interfaces/responses/IInfo';
+import type { IText } from '../../../interfaces/responses/IText';
+import type { IDescription } from '../../../interfaces/responses/IDescription';
+import type { IImage } from '../../../interfaces/responses/IImage';
+import type { IVideo } from '../../../interfaces/responses/IVideo';
+import type { IAccordian } from '../../../interfaces/responses/IAccordian';
+import type { IButton } from '../../../interfaces/responses/IButton';
+import type { IListItem } from '../../../interfaces/responses/IListItem';
+import type { IChip } from '../../../interfaces/responses/IChip';
+import type { IFile } from '../../../interfaces/responses/IFile';
+import type { IError } from '../../../interfaces/responses/IError';
 
 interface ChatMessageRendererProps {
   message: IMessage;
@@ -37,13 +37,13 @@ const ChatMessageRenderer = ({
   mainTextColor,
   onButtonClick,
 }: ChatMessageRendererProps) => {
-  const props = {mainColor, mainTextColor};
+  const props = { mainColor, mainTextColor };
 
   switch (message.type) {
     case 'error':
-      return <ChatError textToRender={(message.content as IError).content} />;
+      return <ChatError textToRender={(message.content as IError).message} />;
     case 'text': {
-      const {content, isSelf} = message.content as IText;
+      const { content, isSelf } = message.content as IText;
       return (
         <ChatText
           textToRender={content}

@@ -19,7 +19,8 @@ const ChatWrapper: React.FC = () => {
       ]}
     >
       <ChatDialog
-        chatURL="http://localhost:8080"
+        chatURL="https://europe-west1-dotstorming.cloudfunctions.net/cx-chat"
+        apiKey="cb2be986-6b84-4ab1-8eeb-b2fc40402077"
         agentPath="https://dialogflow.cloud.google.com/cx/projects/dotstorming/locations/global/agents/4459aa96-eebe-4419-8d28-77207f442165"
         sessionTimeout={30}
         mainColor="#ff0000"
