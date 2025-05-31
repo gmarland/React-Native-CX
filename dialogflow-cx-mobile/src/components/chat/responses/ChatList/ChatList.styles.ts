@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   containerStyles: {
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 
     // iOS Shadow
     shadowColor: '#222B38',
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
 
@@ -30,8 +30,16 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     color: '#555',
   },
+  firstImage: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
   image: {
     width: '100%',
     height: 200,
+  },
+  divider: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
 });

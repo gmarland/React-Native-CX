@@ -1,8 +1,8 @@
-import React, {useState, FC} from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import Svg, {Path} from 'react-native-svg';
+import { useState } from 'react';
+import { TouchableOpacity, View } from 'react-native';
+import Svg, { Path } from 'react-native-svg';
 
-import {styles} from './ChatInput.styles';
+import { styles } from './ChatInput.styles';
 import AutoGrowTextarea from '../../core/AutoGrowTextarea/AutoGrowTextarea';
 
 interface ChatInputProps {
@@ -10,7 +10,7 @@ interface ChatInputProps {
   onMessageEntered?: (text: string) => void;
 }
 
-const ChatInput: FC<ChatInputProps> = ({
+const ChatInput: React.FC<ChatInputProps> = ({
   placeholder = 'Message...',
   onMessageEntered,
 }) => {

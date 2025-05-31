@@ -1,69 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
 
 import { styles } from './ChatInfo.styles';
 
-const ChatInfo = ({
-  title,
-  subtitle,
-  image,
-  url,
-}: {
+interface ChatInfoProps {
   title: string;
   subtitle: string;
   image: string;
   url: string;
-}) => {
+}
+
+const IMAGE_WIDTH = 290;
+
+const ChatInfo: React.FC<ChatInfoProps> = ({ title, subtitle, image, url }) => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
 
-  const IMAGE_WIDTH = 290;
-
   useEffect(() => {
-    if (!image || image.length === 0) {
+    if (!image) {
       setImageHeight(null);
       return;
-    } else {
-      Image.getSize(
-        image,
-        (width, height) => {
-          const scaleFactor = IMAGE_WIDTH / width;
-          const scaledHeight = height * scaleFactor;
-          setImageHeight(scaledHeight);
-        },
-        (error) => {
-          console.error('Failed to get image size:', error);
-        }
-      );
     }
+
+    Image.getSize(
+      image,
+      (width, height) => {
+        const scaleFactor = IMAGE_WIDTH / width;
+        setImageHeight(height * scaleFactor);
+      },
+      (error) => {
+        console.error('Failed to get image size:', error);
+      }
+    );
   }, [image]);
 
-  const renderCard = () => {
+  const renderCard = useMemo(() => {
     return (
       <View style={styles.containerStyles}>
-        {image && image.length > 0 && (
+        {image && (
           <Image
             source={{ uri: image }}
-            style={[styles.image, { width: IMAGE_WIDTH, height: imageHeight }]}
+            style={[
+              styles.image,
+              { width: IMAGE_WIDTH, height: imageHeight || IMAGE_WIDTH },
+            ]}
+            resizeMode="contain"
           />
         )}
-        {title && title.length > 0 && (
-          <View style={styles.messageStyles}>
-            <Text style={styles.title}>{title}</Text>
-            {subtitle && subtitle.length > 0 && (
-              <Text style={styles.subtitle}>{subtitle}</Text>
-            )}
-          </View>
-        )}
+        <View style={styles.messageStyles}>
+          {title && <Text style={styles.title}>{title}</Text>}
+          {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
+        </View>
       </View>
     );
-  };
+  }, [image, imageHeight, title, subtitle]);
 
-  return url && url.length > 0 ? (
-    <TouchableOpacity onPress={() => Linking.openURL(url)}>
-      {renderCard()}
+  return url ? (
+    <TouchableOpacity
+      onPress={() => Linking.openURL(url)}
+      accessibilityRole="link"
+      accessibilityLabel={`Open ${title}`}
+    >
+      {renderCard}
     </TouchableOpacity>
   ) : (
-    renderCard()
+    renderCard
   );
 };
 

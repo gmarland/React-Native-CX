@@ -1,7 +1,8 @@
 import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
 
+import type { IChip } from '../../../../interfaces/responses/IChip';
+
 import { styles } from './ChatChips.styles';
-import { IChip } from '../../../interfaces/IChip';
 
 const ChatChips = ({ chips }: { chips: IChip[] }) => {
   const renderCard = (chip: IChip, index: number) => {

@@ -1,9 +1,14 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 
-import {styles} from './ChatDescription.styles';
+import { styles } from './ChatDescription.styles';
 
-const ChatDescription = ({title, texts}: {title: string; texts: string[]}) => {
+const ChatDescription = ({
+  title,
+  texts,
+}: {
+  title: string;
+  texts: string[];
+}) => {
   return (
     <View style={styles.containerStyles}>
       {title && title.length > 0 && (

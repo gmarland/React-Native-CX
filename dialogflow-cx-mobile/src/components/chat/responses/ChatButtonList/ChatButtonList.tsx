@@ -1,10 +1,9 @@
-import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
 import DFChatButton from '../ChatButton/ChatButton';
 
-import {styles} from './ChatButtonList.styles';
-import {IButton} from '../../../interfaces/IButton';
+import { styles } from './ChatButtonList.styles';
+import type { IButton } from '../../../../interfaces/responses/IButton';
 
 const ChatButtonList = ({
   buttons,
@@ -22,7 +21,8 @@ const ChatButtonList = ({
       style={[
         styles.container,
         buttons.length === 1 ? styles.single : styles.multiple,
-      ]}>
+      ]}
+    >
       {buttons.map((btn, index) => (
         <DFChatButton
           key={index}
