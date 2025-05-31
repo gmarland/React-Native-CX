@@ -24,8 +24,7 @@ export interface IMessage {
     | 'list'
     | 'accordian'
     | 'chips'
-    | 'files'
-    | 'form';
+    | 'files';
   content:
     | IError
     | IText
@@ -38,8 +37,7 @@ export interface IMessage {
     | IListItem[]
     | IAccordian
     | IChip[]
-    | IFile[]
-    | IForm;
+    | IFile[];
   visible: boolean;
   added: Date;
 }
