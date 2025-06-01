@@ -9,7 +9,7 @@ import {
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import uuid from 'react-native-uuid';
 
-import ChatWindow from '../ChatWindow/ChatWindow';
+import ChatWindow, { type ChatWindowHandle } from '../ChatWindow/ChatWindow';
 import ChatInput from '../ChatInput/ChatInput';
 import SessionExpired from '../SessionExpired/SessionExpired';
 
@@ -52,7 +52,7 @@ const ChatDialog = forwardRef(
     const [showSessionExpired, setShowSessionExpired] = useState(false);
     const [sessionId, setSessionId] = useState<string>(uuid.v4() as string);
 
-    const chatWindowRef = useRef<typeof ChatWindow | null>(null);
+    const chatWindowRef = useRef<ChatWindowHandle | null>(null);
 
     useImperativeHandle(ref, () => ({
       restart: async () => {
@@ -108,8 +108,11 @@ const ChatDialog = forwardRef(
             .catch((err) => {
               chatWindowRef.current?.addMessages([
                 {
+                  id: uuid.v4() as string,
                   type: 'error',
                   content: { message: err.message },
+                  visible: true,
+                  added: new Date(),
                 },
               ]);
             });
@@ -117,8 +120,11 @@ const ChatDialog = forwardRef(
           console.log(err);
           chatWindowRef.current?.addMessages([
             {
+              id: uuid.v4() as string,
               type: 'error',
               content: { message: (err as Error).message },
+              visible: true,
+              added: new Date(),
             },
           ]);
         }

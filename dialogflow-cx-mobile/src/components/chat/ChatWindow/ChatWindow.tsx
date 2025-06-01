@@ -14,6 +14,11 @@ import ChatMessageRenderer from '../ChatMessageRenderer/ChatMessageRenderer';
 
 import type { IMessage } from '../../../interfaces/responses/IMessage';
 
+export interface ChatWindowHandle {
+  clearMessages: () => void;
+  addMessages: (messages: IMessage[]) => Promise<void>;
+}
+
 interface ChatWindowProps {
   sessionTimeout: number;
   delay?: number;
@@ -26,7 +31,7 @@ interface ChatWindowProps {
   onSessionExpired: () => void;
 }
 
-const ChatWindow = forwardRef(
+const ChatWindow = forwardRef<ChatWindowHandle, ChatWindowProps>(
   (
     {
       sessionTimeout,
@@ -38,7 +43,7 @@ const ChatWindow = forwardRef(
       setIsLoading,
       onButtonClick,
       onSessionExpired,
-    }: ChatWindowProps,
+    },
     ref
   ) => {
     const [renderedMessages, setRenderedMessages] = useState<IMessage[]>([]);
