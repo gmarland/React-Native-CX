@@ -1,7 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
-import {styles} from './ChatText.styles';
+import { styles } from './ChatText.styles';
 import ChatHTML from '../ChatHTML/ChatHTML';
 
 const ChatText = ({
@@ -27,8 +27,8 @@ const ChatText = ({
   const messageStyles = [
     styles.responseMessage,
     isMessageOutbound
-      ? {color: mainTextColor, backgroundColor: mainColor}
-      : {color: '#000000', backgroundColor: '#ECECEC'},
+      ? { color: mainTextColor, backgroundColor: mainColor }
+      : { color: '#000000', backgroundColor: '#ECECEC' },
   ];
 
   return (

@@ -1,7 +1,7 @@
-import React, {useRef} from 'react';
-import {TextInput, TextInputProps} from 'react-native';
+import React, { useRef } from 'react';
+import { TextInput, TextInputProps } from 'react-native';
 
-import {styles} from './AutoGrowTextarea.styles';
+import { styles } from './AutoGrowTextarea.styles';
 
 interface AutoGrowTextareaProps
   extends Omit<TextInputProps, 'onChangeText' | 'value'> {

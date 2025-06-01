@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import {coreStyles} from './core.styles';
+import { coreStyles } from './core.styles';
 
 export const commonStyles = StyleSheet.create({
   errorAlert: {

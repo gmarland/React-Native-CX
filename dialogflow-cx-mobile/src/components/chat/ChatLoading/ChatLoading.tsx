@@ -1,14 +1,14 @@
-import React, {useEffect, useRef} from 'react';
-import {View, Animated, Easing} from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Animated, Easing } from 'react-native';
 
-import {styles} from './ChatLoading.styles';
+import { styles } from './ChatLoading.styles';
 
 type ChatLoadingProps = {
   isVisible: boolean;
   mainColor: string;
 };
 
-const ChatLoading: React.FC<ChatLoadingProps> = ({isVisible, mainColor}) => {
+const ChatLoading: React.FC<ChatLoadingProps> = ({ isVisible, mainColor }) => {
   const opacity1 = useRef(new Animated.Value(1)).current;
   const opacity2 = useRef(new Animated.Value(1)).current;
   const opacity3 = useRef(new Animated.Value(1)).current;
@@ -30,7 +30,7 @@ const ChatLoading: React.FC<ChatLoadingProps> = ({isVisible, mainColor}) => {
               easing: Easing.linear,
               useNativeDriver: true,
             }),
-          ]),
+          ])
         );
       };
 
@@ -48,19 +48,19 @@ const ChatLoading: React.FC<ChatLoadingProps> = ({isVisible, mainColor}) => {
         <Animated.View
           style={[
             styles.circle,
-            {backgroundColor: mainColor, opacity: opacity1},
+            { backgroundColor: mainColor, opacity: opacity1 },
           ]}
         />
         <Animated.View
           style={[
             styles.circle,
-            {backgroundColor: mainColor, opacity: opacity2},
+            { backgroundColor: mainColor, opacity: opacity2 },
           ]}
         />
         <Animated.View
           style={[
             styles.circle,
-            {backgroundColor: mainColor, opacity: opacity3},
+            { backgroundColor: mainColor, opacity: opacity3 },
           ]}
         />
       </View>
