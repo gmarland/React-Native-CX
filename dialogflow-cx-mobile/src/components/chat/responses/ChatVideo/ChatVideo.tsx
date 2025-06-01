@@ -13,10 +13,10 @@ const ChatVideo: React.FC<ChatVideoProps> = ({ url }) => {
   const height = (width / 16) * 9;
 
   const extractVideoId = useCallback((videoUrl: string): string | null => {
-    const match = videoUrl.match(
+    const matches = videoUrl.match(
       /(?:youtube\.com\/(?:.*v=|.*\/|.*videos\/|.*embed\/|.*shorts\/)|youtu\.be\/)([^"&?\/\s]{11})/
     );
-    return match ? match[1] : null;
+    return matches && matches.length > 0 && matches[1] ? matches[1] : null;
   }, []);
 
   useEffect(() => {

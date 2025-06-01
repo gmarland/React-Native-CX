@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import { ChatDialog } from 'dialogflow-cx-mobile';
+import { ChatDialog } from 'react-native-dfcx';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

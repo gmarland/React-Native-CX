@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { TextInput, TextInputProps } from 'react-native';
+import { TextInput } from 'react-native';
+import type { TextInputProps } from 'react-native';
 
 import { styles } from './AutoGrowTextarea.styles';
 

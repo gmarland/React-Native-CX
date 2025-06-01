@@ -48,7 +48,6 @@ const ChatMessageRenderer = ({
         <ChatText
           textToRender={content}
           messageType={isSelf ? 'outbound' : 'inbound'}
-          timestamp={message.added.getTime()}
           {...props}
         />
       );

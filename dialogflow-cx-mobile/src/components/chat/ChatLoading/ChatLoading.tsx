@@ -34,9 +34,15 @@ const ChatLoading: React.FC<ChatLoadingProps> = ({ isVisible, mainColor }) => {
         );
       };
 
-      createAnimation(opacity1, 0).start();
-      createAnimation(opacity2, 200).start();
-      createAnimation(opacity3, 400).start();
+      createAnimation(opacity1).start();
+
+      setTimeout(() => {
+        createAnimation(opacity2).start();
+      }, 200);
+
+      setTimeout(() => {
+        createAnimation(opacity3).start();
+      }, 200);
     }
   }, [isVisible, opacity1, opacity2, opacity3]);
 
