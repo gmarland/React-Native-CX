@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
-    "build:dist": "./build-dist.sh",
+    "build:dist": "./scripts/build-dist.sh",
     "start": "functions-framework --target=processChat"
   },
   "author": "",

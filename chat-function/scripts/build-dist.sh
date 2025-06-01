@@ -4,7 +4,7 @@ tsc
 rm -rf dist
 mkdir -p dist
 cp -r build/* dist/
-cp ./deploy.sh dist/
+cp ./scripts/deploy.sh dist/
 cp ./package.json dist/
 
 cd dist
