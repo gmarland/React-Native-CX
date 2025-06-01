@@ -5,6 +5,7 @@ rm -rf dist
 mkdir -p dist
 cp -r build/* dist/
 cp ./scripts/deploy.sh dist/
+cp ./scripts/README.md dist/
 cp ./package.json dist/
 
 cd dist
