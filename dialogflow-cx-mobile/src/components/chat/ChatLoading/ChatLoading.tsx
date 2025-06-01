@@ -15,7 +15,7 @@ const ChatLoading: React.FC<ChatLoadingProps> = ({ isVisible, mainColor }) => {
 
   useEffect(() => {
     if (isVisible) {
-      const createAnimation = (opacity: Animated.Value, delay: number) => {
+      const createAnimation = (opacity: Animated.Value) => {
         return Animated.loop(
           Animated.sequence([
             Animated.timing(opacity, {

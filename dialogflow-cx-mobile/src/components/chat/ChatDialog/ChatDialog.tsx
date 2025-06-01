@@ -123,7 +123,15 @@ const ChatDialog = forwardRef(
           ]);
         }
       },
-      [addMessage, chatURL, agentPath, sessionId]
+      [
+        addMessage,
+        chatURL,
+        agentPath,
+        sessionId,
+        apiKey,
+        languageCode,
+        sessionVariables,
+      ]
     );
 
     const initializeSession = useCallback(() => {

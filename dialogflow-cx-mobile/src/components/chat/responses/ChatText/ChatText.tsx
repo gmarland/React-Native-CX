@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 
 import { styles } from './ChatText.styles';
@@ -7,13 +6,11 @@ import ChatHTML from '../ChatHTML/ChatHTML';
 const ChatText = ({
   textToRender,
   messageType,
-  timestamp,
   mainColor,
   mainTextColor,
 }: {
   textToRender: string;
   messageType: 'inbound' | 'outbound';
-  timestamp?: number;
   mainColor?: string;
   mainTextColor?: string;
 }) => {

@@ -12,8 +12,8 @@ const ChatVideo: React.FC<ChatVideoProps> = ({ url }) => {
   const paddedWidth = width - 40; // Assuming 16px padding on each side
   const height = (width / 16) * 9;
 
-  const extractVideoId = useCallback((url: string): string | null => {
-    const match = url.match(
+  const extractVideoId = useCallback((videoUrl: string): string | null => {
+    const match = videoUrl.match(
       /(?:youtube\.com\/(?:.*v=|.*\/|.*videos\/|.*embed\/|.*shorts\/)|youtu\.be\/)([^"&?\/\s]{11})/
     );
     return match ? match[1] : null;

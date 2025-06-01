@@ -1,5 +1,5 @@
 {
-  "name": "dialogflow-cx-mobile",
+  "name": "react-native-dfcx",
   "version": "0.1.0",
   "description": "A react native implementation for Dialogflow CX",
   "main": "./lib/module/index.js",
