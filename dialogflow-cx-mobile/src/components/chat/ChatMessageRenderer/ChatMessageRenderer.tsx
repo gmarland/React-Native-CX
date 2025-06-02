@@ -70,7 +70,7 @@ const ChatMessageRenderer = ({
           isLast
           isButtonList={false}
           text={(message.content as IButton).text}
-          value={(message.content as IButton).value}
+          url={(message.content as IButton).url}
           onButtonClicked={onButtonClick}
         />
       );

@@ -1,4 +1,4 @@
 export interface IButton {
   text: string;
-  value: string;
+  url?: string | null;
 }

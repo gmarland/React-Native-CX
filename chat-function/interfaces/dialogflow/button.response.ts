@@ -16,7 +16,7 @@ export class ButtonResponse implements IResponse {
       type: "button",
       content: {
         text: this._text,
-        value: this._url ? this._url : this._text,
+        url: this._url,
       },
     };
   }

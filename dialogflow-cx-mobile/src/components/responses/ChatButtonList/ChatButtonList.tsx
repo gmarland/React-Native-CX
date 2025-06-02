@@ -30,7 +30,7 @@ const ChatButtonList = ({
           isLast={index === buttons.length - 1}
           isButtonList={true}
           text={btn.text}
-          value={btn.value}
+          url={btn.url}
           mainColor={mainColor}
           mainTextColor={mainTextColor}
           onButtonClicked={(value: string) => onButtonClicked(value)}

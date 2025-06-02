@@ -7,7 +7,7 @@ const ChatButton = ({
   isLast = false,
   isButtonList = false,
   text,
-  value,
+  url,
   fullWidth = false,
   mainColor,
   mainTextColor,
@@ -17,79 +17,46 @@ const ChatButton = ({
   isLast: boolean;
   isButtonList: boolean;
   text: string;
-  value: string;
+  url?: string | null;
   fullWidth?: boolean;
   mainColor: string;
   mainTextColor: string;
   onButtonClicked?: (value: string) => void;
 }) => {
-  const extractLinkFromContent = (content: string) => {
-    const urlRegex = /(http|https):\/\/\S+/;
-    const match = content.match(urlRegex);
-    return match ? match[0] : null;
-  };
-
-  const _link = extractLinkFromContent(value);
-
   const handlePress = () => {
-    if (_link) {
-      Linking.openURL(_link);
+    if (url) {
+      Linking.openURL(url);
     } else {
-      onButtonClicked?.(value);
+      onButtonClicked?.(text);
     }
   };
 
   return (
     <View style={styles.container}>
-      {_link ? (
-        <TouchableOpacity
-          onPress={handlePress}
+      <TouchableOpacity
+        onPress={handlePress}
+        style={[
+          styles.shadow,
+          isButtonList ? styles.buttonList : styles.button,
+          isFirst && isButtonList ? styles.buttonListFirst : {},
+          isLast && isButtonList ? styles.buttonListLast : {},
+          {
+            backgroundColor: mainColor,
+            width: fullWidth ? '100%' : 290,
+          },
+        ]}
+      >
+        <Text
           style={[
-            styles.button,
-            styles.shadow,
+            styles.responseText,
             {
-              backgroundColor: mainColor,
-              width: fullWidth ? '100%' : 290,
+              color: mainTextColor,
             },
           ]}
         >
-          <Text
-            style={[
-              styles.responseText,
-              {
-                color: mainTextColor,
-              },
-            ]}
-          >
-            {text}
-          </Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity
-          onPress={handlePress}
-          style={[
-            styles.shadow,
-            isButtonList ? styles.buttonList : styles.button,
-            isFirst && isButtonList ? styles.buttonListFirst : {},
-            isLast && isButtonList ? styles.buttonListLast : {},
-            {
-              backgroundColor: mainColor,
-              width: fullWidth ? '100%' : 290,
-            },
-          ]}
-        >
-          <Text
-            style={[
-              styles.responseText,
-              {
-                color: mainTextColor,
-              },
-            ]}
-          >
-            {text}
-          </Text>
-        </TouchableOpacity>
-      )}
+          {text}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
