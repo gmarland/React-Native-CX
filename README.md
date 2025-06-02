@@ -33,7 +33,7 @@ Dialogflow CX does not support direct client-side integration without exposing s
 
 ### 1. Deploy the Cloud Function
 
-Download the latest [`cloud-function`](./releases) and follow the [deployment instructions](./chat-function/README.md). You’ll run a script that:
+Download the latest [`cloud-function`](https://github.com/gmarland/react-native-DFCX/releases) and follow the [deployment instructions](./chat-function/README.md). You’ll run a script that:
 
 - Deploys the function to Google Cloud
 - Optionally secures it with an API key
