@@ -11,32 +11,22 @@ const ChatChips = ({
   chips: IChip[];
   onButtonClicked?: (value: string) => void;
 }) => {
-  const renderCard = (chip: IChip, index: number) => {
-    return (
-      <View key={index} style={styles.containerStyles}>
-        {chip.image && chip.image.length > 0 && (
-          <Image source={{ uri: chip.image }} style={styles.image} />
-        )}
-        {chip.title && chip.title.length > 0 && (
-          <Text style={styles.title}>{chip.title}</Text>
-        )}
-      </View>
-    );
-  };
-
   const renderChip = (chip: IChip, index: number) => {
-    if (chip.url && chip.url.length > 0) {
-      return (
-        <TouchableOpacity
-          key={`touch_${index}`}
-          onPress={() => handleClick(chip)}
-        >
-          {renderCard(chip, index)}
-        </TouchableOpacity>
-      );
-    } else {
-      return renderCard(chip, index);
-    }
+    return (
+      <TouchableOpacity
+        key={`touch_${index}`}
+        onPress={() => handleClick(chip)}
+      >
+        <View key={index} style={styles.containerStyles}>
+          {chip.image && chip.image.length > 0 && (
+            <Image source={{ uri: chip.image }} style={styles.image} />
+          )}
+          {chip.title && chip.title.length > 0 && (
+            <Text style={styles.title}>{chip.title}</Text>
+          )}
+        </View>
+      </TouchableOpacity>
+    );
   };
 
   const handleClick = (chip: IChip) => {

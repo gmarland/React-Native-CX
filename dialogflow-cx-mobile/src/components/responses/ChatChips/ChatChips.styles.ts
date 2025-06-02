@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   chipsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    alignItems: 'center',
     gap: 10,
   },
   containerStyles: {
