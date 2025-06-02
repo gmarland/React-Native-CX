@@ -80,6 +80,12 @@ import { ChatDialog } from 'react-native-dfcx';
 | `mainTextColor`    | string | ✅       | —              | Color for user input text.                                             |
 | `sessionVariables` | object | ❌       | `{}`           | Parameters sent with each user input.                                  |
 
+## Methods
+
+| Name      | Description                                      |
+| --------- | ------------------------------------------------ |
+| `restart` | Restarts the chat session with a new session ID. |
+
 ## Retrieving your Agent Path
 
 To find your agent path:

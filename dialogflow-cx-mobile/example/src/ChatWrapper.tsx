@@ -25,7 +25,7 @@ const ChatWrapper: React.FC = () => {
         sessionTimeout={30}
         placeholder="Howdy"
         mainColor="#ff0000"
-        startMessage="hi"
+        welcomeMessage="hi"
         mainTextColor="#FFFFFF"
         sessionVariables={{
           userId: '12345',

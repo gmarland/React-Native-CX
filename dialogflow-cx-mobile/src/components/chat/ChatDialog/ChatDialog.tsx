@@ -17,6 +17,10 @@ import { styles } from './ChatDialog.styles';
 import { ChatService } from '../../../services/chat.service';
 import type { IMessage } from '../../../interfaces/responses/IMessage';
 
+export interface ChatDialogHandle {
+  restart: () => Promise<void>;
+}
+
 interface ChatDialogProps {
   placeholder?: string;
   chatURL: string;
@@ -31,7 +35,7 @@ interface ChatDialogProps {
   sessionVariables?: Record<string, string>;
 }
 
-const ChatDialog = forwardRef(
+const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
   (
     {
       placeholder = 'Message...',
@@ -45,7 +49,7 @@ const ChatDialog = forwardRef(
       mainColor,
       mainTextColor,
       sessionVariables = {},
-    }: ChatDialogProps,
+    },
     ref
   ) => {
     const [isLoading, setIsLoading] = useState(false);
