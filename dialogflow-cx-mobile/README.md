@@ -1,23 +1,32 @@
 # React Native DFCX Component
 
-This is a React Native implementation for Dialogflow CX conversational agents. It requires the chat function to be deployed within the same Google Cloud Platform project as your agent and provides a chat interface for use within a React Native application.
+> A customizable React Native chat interface for Dialogflow CX agents
+
+This React Native component provides a chat interface that communicates securely with a Dialogflow CX agent via a Google Cloud Function middleware proxy. It supports a wide range of Dialogflow Messenger response types and is designed to drop easily into any mobile app using React Native.
+
+> 🔧 **Note**: You must deploy the required [Cloud Function Middleware](../cloud-function/README.md) in your Google Cloud project before using this component.
+
+---
 
 <p align="center">
+  <br/>
   <img src="../readme-images/preview.gif" width="300"/>
 </p>
 
-The component supports the following standard Dialogflow response types in your conversation flows, as detailed in Google’s documentation: (https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/fulfillment):
+## Supported Dialogflow Response Types
 
-- Text: Simple text messages.
-- Description: Multiline text with a header and body
-- Info: An image width a text header and body, which can open a URL
-- Image: Image URLs.
-- Video: Video URLs.
-- Button: Buttons with text and URLs.
-- List: Lists of items with titles, subtitles, and images.
-- Files: File attachments with names, images, and URLs.
-- Chips: Quick reply options.
-- Accordion: Expandable sections with titles and content.
+The component supports the following standard Dialogflow response types in your conversation flows, as detailed in Google’s documentation: [Dialogflow Messenger Fulfillment](https://cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/fulfillment):
+
+- **Text**: Simple text responses
+- **Description**: Multi-line text with a header and body
+- **Info**: Image with a title, body text, and optional URL
+- **Image**: Direct image display
+- **Video**: Embedded video via URL
+- **Button**: Interactive buttons
+- **List**: Scrollable lists of items with titles, subtitles, and images
+- **Files**: Downloadable file attachments with name and preview
+- **Chips**: Quick reply suggestions
+- **Accordion**: Expandable content blocks
 
 > **NOTE** This component requires the chat Cloud Function to be deployed in the same Google Cloud project as your Dialogflow CX agent.
 
@@ -46,25 +55,29 @@ import { ChatDialog } from 'react-native-dfcx';
 />;
 ```
 
-## Properties
+## Props
 
-| Name             | Description                                                                                                 | Detail                         |
-| ---------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| chatURL          | The URL of your deployed Dialogflow CX chat function.                                                       | **required** string            |
-| apiKey           | The key required to call the chat function (if applicable).                                                 | string                         |
-| agentPath        | The URL of the Dialogflow Agent you would like to connect to. See below to find out how to get this path.   | **required** string            |
-| languageCode     | The language code of the Dialogflow CX agent.                                                               | string (default: 'en')         |
-| sessionTimeout   | Time in minutes after which the session will reset and a new session ID will be generated.                  | number ( default: 30)          |
-| placeholder      | The placeholder text for the chat input.                                                                    | string (default: 'Message...') |
-| startMessage     | A hidden message sent to the Dialogflow agent when the session starts. Useful for seeding the conversation. | string                         |
-| welcomeMessage   | A message displayed to the user when the session starts. This is not sent to Dialogflow.                    | string                         |
-| mainColor        | The background color for user messages.                                                                     | **required** string            |
-| mainTextColor    | The color that is used for the text of user inputs                                                          | **required** string            |
-| sessionVariables | Session parameters to send with each user input.                                                            | object                         |
+| Name               | Type   | Required | Default        | Description                                                            |
+| ------------------ | ------ | -------- | -------------- | ---------------------------------------------------------------------- |
+| `chatURL`          | string | ✅       | —              | The URL of your deployed Dialogflow CX chat function.                  |
+| `apiKey`           | string | ❌       | —              | Optional API key required to call the chat function.                   |
+| `agentPath`        | string | ✅       | —              | The full Dialogflow Agent path URL.                                    |
+| `languageCode`     | string | ❌       | `'en'`         | Language code of the Dialogflow CX agent.                              |
+| `sessionTimeout`   | number | ❌       | `30`           | Time in minutes before session resets and new session ID is generated. |
+| `placeholder`      | string | ❌       | `'Message...'` | Input placeholder text.                                                |
+| `startMessage`     | string | ❌       | —              | Hidden message sent to Dialogflow when session starts.                 |
+| `welcomeMessage`   | string | ❌       | —              | Message shown to user at session start (not sent to Dialogflow).       |
+| `mainColor`        | string | ✅       | —              | Background color for user messages.                                    |
+| `mainTextColor`    | string | ✅       | —              | Color for user input text.                                             |
+| `sessionVariables` | object | ❌       | `{}`           | Parameters sent with each user input.                                  |
 
 ## Retrieving your Agent Path
 
-To retrieve the agentPath, open the Dialogflow/Conversational Agents console and click the corresponding button in the agent list.
+To find your agent path:
+
+1. Go to the Dialogflow CX Console.
+2. Open your project and view the list of agents.
+3. Click the clipboard icon next to your agent to copy its path.
 
 <p align="center">
   <br/>
@@ -72,4 +85,8 @@ To retrieve the agentPath, open the Dialogflow/Conversational Agents console and
   <br/>
 </p>
 
-This will place the agentPath into your clipboard for use in the component.
+The copied URL can be pasted directly into the agentPath prop.
+
+## Need Help?
+
+For help or customizations, reach out to gareth@dotstorming.com.

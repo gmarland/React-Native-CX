@@ -6,7 +6,16 @@ This function is required to use the React Native chat component. Directly calli
 
 The deploy.sh script in this package deploys the chat function. It must be run and deployed within the same Google Cloud project as your Dialogflow CX (Google Conversational Agent) project. This chat function acts as a proxy, allowing the React Native component to securely communicate with your agent.
 
-## Running the deploy.sh script
+## Requirements
+
+- A Google Cloud project with billing enabled
+- Dialogflow CX agent already created
+- Google Cloud SDK installed and authenticated (`gcloud`)
+- Permissions to deploy Cloud Functions
+
+## Deployment Guide
+
+### Running the deploy.sh script
 
 You can deploy the chat function manually, but a deploy.sh script is provided to automate the process.
 
@@ -19,7 +28,7 @@ gcloud auth login
 Next, make sure the script is executable:
 
 ```bash
-sudo chmod +x ./deploy.sh
+chmod +x ./deploy.sh
 ```
 
 Finally, run the script to deploy the function:
@@ -45,22 +54,22 @@ If you choose to use an API key, you will also be prompted to enter it:
 🔑 Enter the API key:
 ```
 
-### Prompt Details
+#### Prompt Details
 
-#### 🧾 Google Cloud Project ID
+##### 🧾 Google Cloud Project ID
 
 The ID of the Google Cloud project where the function should be deployed.
 **Note:** This **must** be the same project that hosts your Dialogflow CX agent.
 
-#### 🌍 Region
+##### 🌍 Region
 
 This is the region you would like to deploy the cloud function to.
 
-#### 📛 Cloud Function Name
+##### 📛 Cloud Function Name
 
 The name the function will be given in Google Cloud Platform after deployment.
 
-#### 🔑 API Key (Optional)
+##### 🔑 API Key (Optional)
 
 An optional key you can set for added security. If provided, the Cloud Function will reject any incoming requests that do not include this key in the headers.
 
