@@ -86,6 +86,4 @@ The component supports all standard [Dialogflow Messenger response types](https:
 
 ## ❓ Need Help?
 
-If you get stuck or want custom features, feel free to reach out:
-
-**gareth@dotstorming.com**
+If you get stuck or want custom features, feel free to reach out to gareth@dotstorming.com
