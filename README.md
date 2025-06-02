@@ -56,8 +56,8 @@ import { ChatDialog } from "react-native-dfcx";
   chatURL="YOUR_CLOUD_FUNCTION_URL"
   apiKey="YOUR_API_KEY_IF_USED"
   agentPath="YOUR_DIALOGFLOW_AGENT_PATH"
-  mainColor="#007AFF"
-  mainTextColor="#FFFFFF"
+  mainColor="USER_INPUTS_BACKGROUND_COLOR"
+  mainTextColor="USER_INPUTS_TEXT_COLOR"
 />;
 ```
 
