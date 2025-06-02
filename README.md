@@ -79,7 +79,7 @@ The component supports all standard [Dialogflow Messenger response types](https:
 ## 📘 Example
 
 <p align="center">
-<img src="./readme-images/preview.gif" width="250"/>
+<img src="https://raw.githubusercontent.com/gmarland/react-native-DFCX/refs/heads/main/readme-images/preview.gif" width="250"/>
 </p>
 
 ---

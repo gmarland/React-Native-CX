@@ -10,7 +10,7 @@ This React Native component provides a chat interface that communicates securely
 
 <p align="center">
   <br/>
-  <img src="../readme-images/preview.gif" width="300"/>
+  <img src="https://raw.githubusercontent.com/gmarland/react-native-DFCX/refs/heads/main/readme-images/preview.gif" width="300"/>
 </p>
 
 ## Supported Dialogflow Response Types
@@ -81,7 +81,7 @@ To find your agent path:
 
 <p align="center">
   <br/>
-  <img src="../readme-images/dfcx-agent.png" width="800px"/>
+  <img src="https://github.com/gmarland/react-native-DFCX/raw/refs/heads/main/readme-images/dfcx-agent.png" width="800px"/>
   <br/>
 </p>
 
