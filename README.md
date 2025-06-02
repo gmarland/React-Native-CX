@@ -78,7 +78,9 @@ The component supports all standard [Dialogflow Messenger response types](https:
 
 ## 📘 Example
 
+<p align="center">
 <img src="./readme-images/preview.gif" width="250"/>
+</p>
 
 ---
 
