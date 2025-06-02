@@ -17,7 +17,6 @@ Dialogflow CX does not support direct client-side integration without exposing s
 /
 ├── component         # React Native component: <ChatDialog />
 ├── cloud-function    # Google Cloud Function middleware proxy
-└── readme-images     # Screenshots and assets for documentation
 ```
 
 ---
