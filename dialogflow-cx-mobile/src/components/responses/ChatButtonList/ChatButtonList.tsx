@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import DFChatButton from '../ChatButton/ChatButton';
 
 import { styles } from './ChatButtonList.styles';
-import type { IButton } from '../../../../interfaces/responses/IButton';
+import type { IButton } from '../../../interfaces/responses/IButton';
 
 const ChatButtonList = ({
   buttons,

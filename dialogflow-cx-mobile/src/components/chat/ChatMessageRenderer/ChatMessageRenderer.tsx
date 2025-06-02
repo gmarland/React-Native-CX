@@ -1,15 +1,15 @@
-import ChatText from '../responses/ChatText/ChatText';
-import ChatInfo from '../responses/ChatInfo/ChatInfo';
-import ChatDescription from '../responses/ChatDescription/ChatDescription';
-import ChatImage from '../responses/ChatImage/ChatImage';
-import ChatVideo from '../responses/ChatVideo/ChatVideo';
-import ChatAccordian from '../responses/ChatAccordian/ChatAccordian';
-import ChatButton from '../responses/ChatButton/ChatButton';
-import ChatList from '../responses/ChatList/ChatList';
-import ChatButtonList from '../responses/ChatButtonList/ChatButtonList';
-import ChatChips from '../responses/ChatChips/ChatChips';
-import ChatFiles from '../responses/ChatFiles/ChatFiles';
-import ChatError from '../responses/ChatError/ChatError';
+import ChatText from '../../responses/ChatText/ChatText';
+import ChatInfo from '../../responses/ChatInfo/ChatInfo';
+import ChatDescription from '../../responses/ChatDescription/ChatDescription';
+import ChatImage from '../../responses/ChatImage/ChatImage';
+import ChatVideo from '../../responses/ChatVideo/ChatVideo';
+import ChatAccordian from '../../responses/ChatAccordian/ChatAccordian';
+import ChatButton from '../../responses/ChatButton/ChatButton';
+import ChatList from '../../responses/ChatList/ChatList';
+import ChatButtonList from '../../responses/ChatButtonList/ChatButtonList';
+import ChatChips from '../../responses/ChatChips/ChatChips';
+import ChatFiles from '../../responses/ChatFiles/ChatFiles';
+import ChatError from '../../responses/ChatError/ChatError';
 
 import type { IMessage } from '../../../interfaces/responses/IMessage';
 import type { IInfo } from '../../../interfaces/responses/IInfo';
@@ -87,7 +87,12 @@ const ChatMessageRenderer = ({
         />
       );
     case 'chips':
-      return <ChatChips chips={message.content as IChip[]} />;
+      return (
+        <ChatChips
+          chips={message.content as IChip[]}
+          onButtonClicked={onButtonClick}
+        />
+      );
     case 'files':
       return <ChatFiles files={message.content as IFile[]} />;
     default:

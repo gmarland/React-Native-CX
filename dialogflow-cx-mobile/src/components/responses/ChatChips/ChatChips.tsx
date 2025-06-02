@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
 
-import type { IChip } from '../../../../interfaces/responses/IChip';
+import type { IChip } from '../../../interfaces/responses/IChip';
 
 import { styles } from './ChatChips.styles';
 

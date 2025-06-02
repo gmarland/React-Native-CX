@@ -1,5 +1,5 @@
 import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
-import type { IListItem } from '../../../../interfaces/responses/IListItem';
+import type { IListItem } from '../../../interfaces/responses/IListItem';
 import { styles } from './ChatList.styles';
 
 const ChatList = ({ items }: { items: IListItem[] }) => {
