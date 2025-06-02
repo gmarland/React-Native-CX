@@ -4,7 +4,7 @@
 
 This React Native component provides a chat interface that communicates securely with a Dialogflow CX agent via a Google Cloud Function middleware proxy. It supports a wide range of Dialogflow Messenger response types and is designed to drop easily into any mobile app using React Native.
 
-> 🔧 **Note**: You must deploy the required [Cloud Function Middleware](../cloud-function/README.md) in your Google Cloud project before using this component.
+> 🔧 **Note**: You must deploy the required [Cloud Function Middleware](../chat-function/README.md) in your Google Cloud project before using this component.
 
 ---
 
