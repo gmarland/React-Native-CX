@@ -23,9 +23,18 @@ The component supports the following standard Dialogflow response types in your 
 - **Image**: Direct image display
 - **Video**: Embedded video via URL
 - **Button**: Interactive buttons
+
+  - Each button can include a label (text) and an optional URL.
+  - Icons are not supported at this time — only plain text labels are shown.
+  - If a URL is provided, tapping the button will open the URL in a browser.
+  - If no URL is provided, tapping the button will send the button’s label as a new user message to the Dialogflow agent.
+
 - **List**: Scrollable lists of items with titles, subtitles, and images
 - **Files**: Downloadable file attachments with name and preview
 - **Chips**: Quick reply suggestions
+  - Each chip can include a label (text) and an optional URL.
+  - If a URL is provided, tapping the chip will open the URL in a browser.
+  - If no URL is provided, tapping the chip will send the chip label as a new user message to the Dialogflow agent.
 - **Accordion**: Expandable content blocks
 
 > **NOTE** This component requires the chat Cloud Function to be deployed in the same Google Cloud project as your Dialogflow CX agent.

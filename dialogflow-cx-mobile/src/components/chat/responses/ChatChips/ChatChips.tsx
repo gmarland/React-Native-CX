@@ -4,7 +4,13 @@ import type { IChip } from '../../../../interfaces/responses/IChip';
 
 import { styles } from './ChatChips.styles';
 
-const ChatChips = ({ chips }: { chips: IChip[] }) => {
+const ChatChips = ({
+  chips,
+  onButtonClicked,
+}: {
+  chips: IChip[];
+  onButtonClicked?: (value: string) => void;
+}) => {
   const renderCard = (chip: IChip, index: number) => {
     return (
       <View key={index} style={styles.containerStyles}>
@@ -23,13 +29,21 @@ const ChatChips = ({ chips }: { chips: IChip[] }) => {
       return (
         <TouchableOpacity
           key={`touch_${index}`}
-          onPress={() => Linking.openURL(chip.url)}
+          onPress={() => handleClick(chip)}
         >
           {renderCard(chip, index)}
         </TouchableOpacity>
       );
     } else {
       return renderCard(chip, index);
+    }
+  };
+
+  const handleClick = (chip: IChip) => {
+    if (chip.url && chip.url.length > 0) {
+      Linking.openURL(chip.url);
+    } else {
+      onButtonClicked?.(chip.title);
     }
   };
 
