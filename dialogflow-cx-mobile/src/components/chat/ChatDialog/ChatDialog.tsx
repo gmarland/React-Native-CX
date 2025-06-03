@@ -144,10 +144,10 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
       ]
     );
 
-    const initializeSession = () => {
-      setIsLoading(true);
+    useEffect(() => {
+      console.log('PLACEHOLDER', placeholder);
 
-      console.log('sessionId initialized', sessionId);
+      setIsLoading(true);
 
       if (welcomeMessage) {
         addMessage(welcomeMessage, false);
@@ -158,14 +158,6 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
       }
 
       setIsLoading(false);
-
-      console.log('ChatDialog initialized with sessionId:', sessionId);
-    };
-
-    useEffect(() => {
-      console.log('Testing');
-
-      initializeSession();
     }, [sessionId]);
 
     return (
