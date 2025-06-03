@@ -7,5 +7,8 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 3,
     padding: 14,
+    borderWidth: 1,
+    borderColor: 'red',
+    zIndex: 10,
   },
 });

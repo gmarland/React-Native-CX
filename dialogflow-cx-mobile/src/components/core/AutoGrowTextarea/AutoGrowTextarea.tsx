@@ -37,6 +37,7 @@ const AutoGrowTextarea: React.FC<AutoGrowTextareaProps> = ({
       ref={textInputRef}
       value={textValue}
       placeholder={placeholder}
+      placeholderTextColor="#999"
       onChangeText={handleInput}
       onSubmitEditing={handleSubmit}
       style={styles.textarea}
