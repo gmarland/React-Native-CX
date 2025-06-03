@@ -147,7 +147,7 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
     const initializeSession = useCallback(() => {
       setIsLoading(true);
 
-      console.log('sessionId', sessionId);
+      console.log('sessionId initialized', sessionId);
 
       if (welcomeMessage) {
         addMessage(welcomeMessage, false);
