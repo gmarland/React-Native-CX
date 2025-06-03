@@ -160,7 +160,11 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
       setIsLoading(false);
     }, [welcomeMessage, startMessage, addMessage, handleInput]);
 
+    console.log('ChatDialog initialized with sessionId:', sessionId);
+
     useEffect(() => {
+      console.log('Testing');
+
       initializeSession();
     }, [sessionId, initializeSession]);
 
