@@ -145,8 +145,6 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
     );
 
     useEffect(() => {
-      console.log('PLACEHOLDER', placeholder);
-
       setIsLoading(true);
 
       if (welcomeMessage) {

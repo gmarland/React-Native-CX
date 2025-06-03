@@ -4,11 +4,12 @@ export const styles = StyleSheet.create({
   textarea: {
     flex: 1,
     resizeMode: 'none',
-    fontSize: 14,
+    fontSize: 16,
     marginBottom: 3,
-    padding: 14,
-    borderWidth: 1,
-    borderColor: 'red',
+    paddingLeft: 16,
+    paddingRight: 5,
+    paddingTop: 15,
+    paddingBottom: 14,
     zIndex: 10,
   },
 });
