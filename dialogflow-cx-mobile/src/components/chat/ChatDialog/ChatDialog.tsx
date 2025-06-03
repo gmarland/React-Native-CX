@@ -144,7 +144,7 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
       ]
     );
 
-    const initializeSession = useCallback(() => {
+    const initializeSession = () => {
       setIsLoading(true);
 
       console.log('sessionId initialized', sessionId);
@@ -158,15 +158,15 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
       }
 
       setIsLoading(false);
-    }, [welcomeMessage, startMessage, addMessage, handleInput]);
 
-    console.log('ChatDialog initialized with sessionId:', sessionId);
+      console.log('ChatDialog initialized with sessionId:', sessionId);
+    };
 
     useEffect(() => {
       console.log('Testing');
 
       initializeSession();
-    }, [sessionId, initializeSession]);
+    }, [sessionId]);
 
     return (
       <KeyboardAvoidingView
