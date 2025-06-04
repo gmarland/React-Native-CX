@@ -1,15 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    display: 'flex',
     flexDirection: 'row',
     borderRadius: 24,
-    shadowColor: '#000',
     backgroundColor: '#fff',
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 4,
     marginTop: 5,
     marginBottom: 20,
     marginLeft: 20,
@@ -20,9 +15,19 @@ export const styles = StyleSheet.create({
     right: 0,
     flex: 1,
     alignItems: 'center',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: 0.2,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
   innerContainer: {
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
