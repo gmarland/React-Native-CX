@@ -156,7 +156,7 @@ const ChatDialog = forwardRef<ChatDialogHandle, ChatDialogProps>(
       }
 
       setIsLoading(false);
-    }, [sessionId]);
+    }, [sessionId, welcomeMessage, startMessage, handleInput, addMessage]);
 
     return (
       <KeyboardAvoidingView
