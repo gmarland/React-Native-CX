@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     zIndex: 1,
   },
   blockout: {
-    height: 30,
+    height: 50,
     width: '100%',
     backgroundColor: '#fff',
   },
